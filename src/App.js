@@ -1,6 +1,7 @@
 import react, { useState } from 'react';
 import data from './data.json'
 import './App.css';
+import { RowView } from './components/RowView';
 
 const App = () => {
 
@@ -19,14 +20,10 @@ const App = () => {
               <th className="table__cell">Actions</th>
             </tr>
           </thead>
-          <tbody className>
-            <tr className="table__row">
-              <td className="table__cell">Random</td>
-              <td className="table__cell">Random</td>
-              <td className="table__cell">Random</td>
-              <td className="table__cell">Random</td>
-              <td className="table__cell">Random</td>
-            </tr>
+          <tbody>
+            {astronauts.map(astronaut => (
+              <RowView astronaut = {astronaut}/>
+            ))}
           </tbody>
         </table>
       </form>
