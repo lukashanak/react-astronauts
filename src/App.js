@@ -9,6 +9,27 @@ const App = () => {
 
   const [astronauts, setAstronauts] = useState(data)
 
+  const [addFormData, setAddFormData] = useState({
+    id: null,
+    firstName: "",
+    lastName: "",
+    birthday: "",
+    superpowers: ""
+  })
+
+  const submitAddFormData = (event) => {
+    event.preventDefault()
+
+    setAstronauts([...astronauts, addFormData])
+  }
+
+  const handleAddFormDataChange = (event) => {
+
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setAddFormData({...addFormData, [name]: value})
+  }
 
   return (
     <div className="App container">
@@ -33,8 +54,8 @@ const App = () => {
           </tbody>
         </table>
       </form>
-      <h2 className="text-center">Add new item</h2>
-      <form className="add__form">
+      <h2 className="text-center">Add new astronaut</h2>
+      <form className="add__form" onSubmit={submitAddFormData}>
         <table className="table margin-bottom-small">
         <tr className="table__row">
             <td className="table__cell table__cell--edit">
@@ -43,22 +64,28 @@ const App = () => {
                  required="required"
                  name="firstName"
                  placeholder="Enter the first name"
+                 value={addFormData.firstName}
+                 onChange={handleAddFormDataChange}
                 ></input>
             </td>
             <td className="table__cell table__cell--edit">
                 <input
                  type="text"
                  required="required"
-                 name="secondName"
+                 name="lastName"
                  placeholder="Enter the second name"
+                 value={addFormData.lastName}
+                 onChange={handleAddFormDataChange}
                 ></input>
             </td>
             <td className="table__cell table__cell--edit">
                 <input
-                 type="text"
+                 type="date"
                  required="required"
                  name="birthday"
                  placeholder="Enter birthday"
+                 value={addFormData.birthday}
+                 onChange={handleAddFormDataChange}
                 ></input>
             </td>
             <td className="table__cell table__cell--edit">
@@ -67,6 +94,8 @@ const App = () => {
                  required="required"
                  name="superpowers"
                  placeholder="Enter superpowers"
+                 value={addFormData.superpowers}
+                 onChange={handleAddFormDataChange}
                 ></input>
             </td>
         </tr>
