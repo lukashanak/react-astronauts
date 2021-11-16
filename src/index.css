@@ -1,0 +1,117 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #FFFFFF;
+    --text-color: black;
+}
+
+body {
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    line-height: 1.25;
+    min-height: 100%;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    border: 2px solid white;
+}
+
+
+
+/* ===============
+TYPOGRAPHY
+==================*/
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 39px;
+}
+
+p {
+    font-size: 20px;
+}
+
+/* ===============
+BUTTONS
+==================*/
+
+.btn {
+    font-size: 23px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn--wide {
+    padding: 0px 25px;
+}
+
+.btn--primary {
+    background-color: #E6E6E6;
+}
+
+.btn--primary:hover {
+    background-color: #DADADA;
+}
+
+.btn--success {
+    background-color: green;
+    color: white;
+}
+
+.btn--success:hover {
+    background-color: #218838;
+}
+
+.add__item__icon {
+    cursor: pointer;
+    font-size: 70px;
+    color: green;
+}
+
+.add__item__icon:hover {
+    color: black;
+}
+
+/* ============
+UTILITIES
+==============*/
+
+.margin-bottom-small {
+    margin-bottom: 35px;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 55px;
+}
+
+.margin-bottom-big {
+    margin-bottom: 95px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.btn__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   }
