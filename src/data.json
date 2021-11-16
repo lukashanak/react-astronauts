@@ -1,0 +1,29 @@
+[{
+    "id": 0,
+    "firstName": "Lukáš",
+    "lastName": "Hanák",
+    "birthday": "22.12.2000",
+    "superpowers": "Huge strength"
+  },
+  {
+    "id": 1,
+    "firstName": "Adam",
+    "lastName": "Random",
+    "birthday": "13.6.1997",
+    "superpowers": "Smart brain"
+  },
+  {
+    "id": 2,
+    "firstName": "Random2",
+    "lastName": "Random",
+    "birthday": "13.6.1997",
+    "superpowers": "Smart brain"
+  },
+  {
+    "id": 3,
+    "firstName": "Random3",
+    "lastName": "Random",
+    "birthday": "13.6.1997",
+    "superpowers": "Smart brain"
+  }
+]
