@@ -2,10 +2,13 @@ import react, { useState } from 'react';
 import data from './data.json'
 import './App.css';
 import { RowView } from './components/RowView';
+import { RowEdit } from './components/RowEdit';
+import { Fragment } from 'react/cjs/react.production.min';
 
 const App = () => {
 
   const [astronauts, setAstronauts] = useState(data)
+
 
   return (
     <div className="App container">
@@ -22,7 +25,10 @@ const App = () => {
           </thead>
           <tbody>
             {astronauts.map(astronaut => (
-              <RowView astronaut = {astronaut}/>
+              <Fragment>
+                <RowView astronaut = {astronaut}/> 
+                <RowEdit astronaut = {astronaut}/>
+              </Fragment>
             ))}
           </tbody>
         </table>
