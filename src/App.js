@@ -94,12 +94,13 @@ const App = () => {
     setAstronauts(astronauts.filter((astronaut) => astronaut.id !== id));
   };
   */
+  const [activeDeleteId, setActiveDeleteId] = useState(null);
 
-  const handleDeleteClick = (astronautId) => {
+  const handleDeleteClick = () => {
     const newAstronauts = [...astronauts];
 
     const index = astronauts.findIndex(
-      (astronaut) => astronaut.id === astronautId
+      (astronaut) => astronaut.id === activeDeleteId
     );
 
     newAstronauts.splice(index, 1);
@@ -107,7 +108,7 @@ const App = () => {
     setAstronauts(newAstronauts);
   };
 
-  const [popupOpen, setPopupOpen] = useState(true);
+  const [popupOpen, setPopupOpen] = useState(false);
 
   return (
     <div className="App container">
@@ -144,6 +145,8 @@ const App = () => {
                     astronaut={astronaut}
                     handleEditClick={handleEditClick}
                     handleDeleteClick={handleDeleteClick}
+                    setPopupOpen={setPopupOpen}
+                    setActiveDeleteId={setActiveDeleteId}
                     key={`RowView${astronaut.id}`}
                   />
                 )}
@@ -151,7 +154,12 @@ const App = () => {
             ))}
           </tbody>
         </table>
-        {popupOpen && <PopupModal />}
+        {popupOpen && (
+          <PopupModal
+            setPopupOpen={setPopupOpen}
+            handleDeleteClick={handleDeleteClick}
+          />
+        )}
       </form>
       <h2 className="text-center">Add new astronaut</h2>
       <form className="add__form" onSubmit={submitAddFormData}>

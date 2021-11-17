@@ -1,6 +1,6 @@
 import React from "react";
 
-export const PopupModal = () => {
+export const PopupModal = ({ setPopupOpen, handleDeleteClick }) => {
   return (
     <div className="popup_modal">
       <p>Do you really want to remove the astronaut from the list? </p>
@@ -8,7 +8,7 @@ export const PopupModal = () => {
         <button
           className="btn btn--primary"
           onClick={() => {
-            // setConfirmationOpen(false);
+            setPopupOpen(false);
           }}
         >
           Cancel
@@ -16,8 +16,8 @@ export const PopupModal = () => {
         <button
           className="btn btn--success"
           onClick={() => {
-            // deleteAstronaut();
-            // setConfirmationOpen(false);
+            handleDeleteClick();
+            setPopupOpen(false);
           }}
         >
           Yes, remove

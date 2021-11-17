@@ -1,6 +1,11 @@
 import React from "react";
 
-export const RowView = ({ astronaut, handleEditClick, handleDeleteClick }) => {
+export const RowView = ({
+  astronaut,
+  handleEditClick,
+  setPopupOpen,
+  setActiveDeleteId,
+}) => {
   return (
     <tr className="table__row">
       <td className="table__cell">{astronaut.firstName}</td>
@@ -17,7 +22,10 @@ export const RowView = ({ astronaut, handleEditClick, handleDeleteClick }) => {
           </button>
           <button
             className="btn"
-            onClick={() => handleDeleteClick(astronaut.id)}
+            onClick={() => {
+              setPopupOpen(true);
+              setActiveDeleteId();
+            }}
           >
             X
           </button>
