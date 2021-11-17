@@ -112,7 +112,17 @@ const App = () => {
 
   return (
     <div className="App container">
-      <form className="margin-bottom-big" onSubmit={handleEditFormSubmit}>
+      <div className="header margin-bottom-small">
+        <h1>AstronautsApp</h1>
+        <p>
+          In this app, you can add new astronauts to the list, remove them or
+          edit them{" "}
+        </p>
+      </div>
+      <form
+        className="margin-bottom-big position-relative"
+        onSubmit={handleEditFormSubmit}
+      >
         <table className="table">
           <thead className="thead">
             <tr>

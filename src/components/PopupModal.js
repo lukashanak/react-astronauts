@@ -2,7 +2,7 @@ import React from "react";
 
 export const PopupModal = ({ setPopupOpen, handleDeleteClick }) => {
   return (
-    <div className="popup_modal">
+    <div className="popup__modal">
       <p>Do you really want to remove the astronaut from the list? </p>
       <div className="modal__buttons">
         <button

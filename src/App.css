@@ -43,7 +43,7 @@ tr:nth-child(even) {
   padding: 20px 5px;
 }
 
-.popup_modal {
+.popup__modal {
   padding: 20px;
   border: 2px solid black;
   width: 80%;
