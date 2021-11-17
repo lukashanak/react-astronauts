@@ -9,33 +9,39 @@ export const RowEdit = () => {
                  required="required"
                  name="firstName"
                  
+
                 ></input>
             </td>
             <td className="table__cell table__cell--edit">
                 <input
                  type="text"
                  required="required"
-                 name="firstName"
+                 name="lastName"
                  
+
                 ></input>
             </td>
             <td className="table__cell table__cell--edit">
                 <input
                  type="text"
                  required="required"
-                 name="firstName"
-                
-                ></input>
-            </td>
-            <td className="table__cell table__cell--edit">
-                <input
-                 type="text"
-                 required="required"
-                 name="firstName"
+                 name="birthday"
                  
+
                 ></input>
             </td>
-            <td className="table__cell">Actions</td>
+            <td className="table__cell table__cell--edit">
+                <input
+                 type="text"
+                 required="required"
+                 name="superpowers"
+                 
+
+                ></input>
+            </td>
+            <td className="table__cell">
+                <button className="btn btn--primary">Save</button>
+            </td>
         </tr>
     )
 }
