@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import data from "./data.json";
 import "./App.css";
 import { RowView } from "./components/RowView";
@@ -39,25 +39,49 @@ const App = () => {
   const [activeEditingId, setActiveEditingId] = useState(null);
 
   // Data of the EDIT FORM saved here
-  /*
+
   const [editFormData, setEditFormData] = useState({
-    fullName: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
+    id: null,
+    firstName: "",
+    lastName: "",
+    birthday: "",
+    superpowers: "",
   });
-  */
+
+  const handleEditFormDataChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setEditFormData({ ...editFormData, [name]: value });
+  };
+
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newAstronauts = astronauts;
+    newAstronauts[activeEditingId] = editFormData;
+
+    setAstronauts(newAstronauts);
+    setActiveEditingId(null);
+  };
 
   // Set Active editing ID once the user clicks on the click button + save current row view values into the editFormData
   const handleEditClick = (event, astronaut) => {
     event.preventDefault();
+    // set Active editing ID
     setActiveEditingId(astronaut.id);
-    console.log(astronaut.id);
+    // save current row data into the editFormData state
+    setEditFormData({
+      id: astronaut.id,
+      firstName: astronaut.firstName,
+      lastName: astronaut.lastName,
+      birthday: astronaut.birthday,
+      superpowers: astronaut.superpowers,
+    });
   };
 
   return (
     <div className="App container">
-      <form className="margin-bottom-big">
+      <form className="margin-bottom-big" onSubmit={handleEditFormSubmit}>
         <table className="table">
           <thead className="thead">
             <tr>
@@ -80,7 +104,10 @@ const App = () => {
             {astronauts.map((astronaut) => (
               <Fragment>
                 {activeEditingId === astronaut.id ? (
-                  <RowEdit />
+                  <RowEdit
+                    editFormData={editFormData}
+                    handleEditFormDataChange={handleEditFormDataChange}
+                  />
                 ) : (
                   <RowView
                     astronaut={astronaut}
@@ -95,48 +122,50 @@ const App = () => {
       <h2 className="text-center">Add new astronaut</h2>
       <form className="add__form" onSubmit={submitAddFormData}>
         <table className="table margin-bottom-small">
-          <tr className="table__row">
-            <td className="table__cell table__cell--edit">
-              <input
-                type="text"
-                required="required"
-                name="firstName"
-                placeholder="Enter the first name"
-                value={addFormData.firstName}
-                onChange={handleAddFormDataChange}
-              ></input>
-            </td>
-            <td className="table__cell table__cell--edit">
-              <input
-                type="text"
-                required="required"
-                name="lastName"
-                placeholder="Enter the second name"
-                value={addFormData.lastName}
-                onChange={handleAddFormDataChange}
-              ></input>
-            </td>
-            <td className="table__cell table__cell--edit">
-              <input
-                type="date"
-                required="required"
-                name="birthday"
-                placeholder="Enter birthday"
-                value={addFormData.birthday}
-                onChange={handleAddFormDataChange}
-              ></input>
-            </td>
-            <td className="table__cell table__cell--edit">
-              <input
-                type="text"
-                required="required"
-                name="superpowers"
-                placeholder="Enter superpowers"
-                value={addFormData.superpowers}
-                onChange={handleAddFormDataChange}
-              ></input>
-            </td>
-          </tr>
+          <tbody>
+            <tr className="table__row">
+              <td className="table__cell table__cell--edit">
+                <input
+                  type="text"
+                  required="required"
+                  name="firstName"
+                  placeholder="Enter the first name"
+                  value={addFormData.firstName}
+                  onChange={handleAddFormDataChange}
+                ></input>
+              </td>
+              <td className="table__cell table__cell--edit">
+                <input
+                  type="text"
+                  required="required"
+                  name="lastName"
+                  placeholder="Enter the second name"
+                  value={addFormData.lastName}
+                  onChange={handleAddFormDataChange}
+                ></input>
+              </td>
+              <td className="table__cell table__cell--edit">
+                <input
+                  type="date"
+                  required="required"
+                  name="birthday"
+                  placeholder="Enter birthday"
+                  value={addFormData.birthday}
+                  onChange={handleAddFormDataChange}
+                ></input>
+              </td>
+              <td className="table__cell table__cell--edit">
+                <input
+                  type="text"
+                  required="required"
+                  name="superpowers"
+                  placeholder="Enter superpowers"
+                  value={addFormData.superpowers}
+                  onChange={handleAddFormDataChange}
+                ></input>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <div className="btn-wrapper">
           <button className="btn btn--long btn--primary">Add astronaut</button>

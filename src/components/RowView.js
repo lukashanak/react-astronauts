@@ -2,7 +2,7 @@ import React from "react";
 
 export const RowView = ({ astronaut, handleEditClick }) => {
   return (
-    <tr className="table__row">
+    <tr className="table__row" key={astronaut.id}>
       <td className="table__cell">{astronaut.firstName}</td>
       <td className="table__cell">{astronaut.lastName}</td>
       <td className="table__cell">{astronaut.birthday}</td>
