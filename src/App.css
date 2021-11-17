@@ -2,17 +2,19 @@
   width: 100%;
 }
 
-.table, .table__cell, .table__row {
+.table,
+.table__cell,
+.table__row {
   border: 2px solid black;
   border-collapse: collapse;
 }
 
 .thead {
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
 tr:nth-child(even) {
-  background-color: #ECECEC;
+  background-color: #ececec;
 }
 
 .table__cell {
@@ -39,4 +41,24 @@ tr:nth-child(even) {
 .table__cell--edit > input {
   width: 100%;
   padding: 20px 5px;
+}
+
+.popup_modal {
+  padding: 20px;
+  border: 2px solid black;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+}
+
+.modal__buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  padding-right: 50px;
 }

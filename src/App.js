@@ -5,6 +5,7 @@ import "./App.css";
 import { RowView } from "./components/RowView";
 import { RowEdit } from "./components/RowEdit";
 import { Fragment } from "react/cjs/react.production.min";
+import { PopupModal } from "./components/PopupModal";
 
 const App = () => {
   // ALL THE DATA SAVED HERE
@@ -106,6 +107,8 @@ const App = () => {
     setAstronauts(newAstronauts);
   };
 
+  const [popupOpen, setPopupOpen] = useState(true);
+
   return (
     <div className="App container">
       <form className="margin-bottom-big" onSubmit={handleEditFormSubmit}>
@@ -148,6 +151,7 @@ const App = () => {
             ))}
           </tbody>
         </table>
+        {popupOpen && <PopupModal />}
       </form>
       <h2 className="text-center">Add new astronaut</h2>
       <form className="add__form" onSubmit={submitAddFormData}>
