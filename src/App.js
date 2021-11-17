@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { nanoid } from "nanoid";
 import data from "./data.json";
 import "./App.css";
 import { RowView } from "./components/RowView";
@@ -13,7 +14,7 @@ const App = () => {
   ADD FORM
   =========*/
   const [addFormData, setAddFormData] = useState({
-    id: null,
+    id: nanoid(),
     firstName: "",
     lastName: "",
     birthday: "",
@@ -29,6 +30,13 @@ const App = () => {
   const submitAddFormData = (event) => {
     event.preventDefault();
     setAstronauts([...astronauts, addFormData]);
+    setAddFormData({
+      id: nanoid(),
+      firstName: "",
+      lastName: "",
+      birthday: "",
+      superpowers: "",
+    });
   };
 
   /* ========
@@ -79,6 +87,25 @@ const App = () => {
     });
   };
 
+  // not working, probably because of not having an unique key on rows
+  /*
+  const handleDeleteClick = (id) => {
+    setAstronauts(astronauts.filter((astronaut) => astronaut.id !== id));
+  };
+  */
+
+  const handleDeleteClick = (astronautId) => {
+    const newAstronauts = [...astronauts];
+
+    const index = astronauts.findIndex(
+      (astronaut) => astronaut.id === astronautId
+    );
+
+    newAstronauts.splice(index, 1);
+
+    setAstronauts(newAstronauts);
+  };
+
   return (
     <div className="App container">
       <form className="margin-bottom-big" onSubmit={handleEditFormSubmit}>
@@ -107,11 +134,14 @@ const App = () => {
                   <RowEdit
                     editFormData={editFormData}
                     handleEditFormDataChange={handleEditFormDataChange}
+                    key={`RowEdit${astronaut.id}`}
                   />
                 ) : (
                   <RowView
                     astronaut={astronaut}
                     handleEditClick={handleEditClick}
+                    handleDeleteClick={handleDeleteClick}
+                    key={`RowView${astronaut.id}`}
                   />
                 )}
               </Fragment>

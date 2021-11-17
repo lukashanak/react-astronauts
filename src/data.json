@@ -1,26 +1,27 @@
-[{
-    "id": 0,
+[
+  {
+    "id": "TztLvaGxwdZyecRo6hIDc",
     "firstName": "Lukáš",
     "lastName": "Hanák",
     "birthday": "22.12.2000",
     "superpowers": "Huge strength"
   },
   {
-    "id": 1,
+    "id": "TztLvaGxwdZyecRo651Dc",
     "firstName": "Adam",
     "lastName": "Random",
     "birthday": "13.6.1997",
     "superpowers": "Smart brain"
   },
   {
-    "id": 2,
+    "id": "fdsfdrtFdZyecRo6hIDc",
     "firstName": "Random2",
     "lastName": "Random",
     "birthday": "13.6.1997",
     "superpowers": "Smart brain"
   },
   {
-    "id": 3,
+    "id": "TztLvaafdfsfDSDc",
     "firstName": "Random3",
     "lastName": "Random",
     "birthday": "13.6.1997",

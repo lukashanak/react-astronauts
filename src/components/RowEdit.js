@@ -2,7 +2,7 @@ import React from "react";
 
 export const RowEdit = ({ editFormData, handleEditFormDataChange }) => {
   return (
-    <tr className="table__row" key={editFormData.id}>
+    <tr className="table__row">
       <td className="table__cell table__cell--edit">
         <input
           type="text"
