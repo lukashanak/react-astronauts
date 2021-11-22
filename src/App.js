@@ -41,13 +41,10 @@ const App = () => {
   };
 
   /* ========
-  EDIT FORM FOR EDITING EXISTING ROWS
+  EDIT FORM
   =========*/
 
-  // Active editing ID
   const [activeEditingId, setActiveEditingId] = useState(null);
-
-  // Data of the EDIT FORM saved here
 
   const [editFormData, setEditFormData] = useState({
     id: null,
@@ -73,12 +70,11 @@ const App = () => {
     setActiveEditingId(null);
   };
 
-  // Set Active editing ID once the user clicks on the click button + save current row view values into the editFormData
   const handleEditClick = (event, astronaut) => {
     event.preventDefault();
-    // set Active editing ID
+
     setActiveEditingId(astronaut.id);
-    // save current row data into the editFormData state
+
     setEditFormData({
       id: astronaut.id,
       firstName: astronaut.firstName,
@@ -88,12 +84,6 @@ const App = () => {
     });
   };
 
-  // not working, probably because of not having an unique key on rows
-  /*
-  const handleDeleteClick = (id) => {
-    setAstronauts(astronauts.filter((astronaut) => astronaut.id !== id));
-  };
-  */
   const [activeDeleteId, setActiveDeleteId] = useState(null);
 
   const handleDeleteClick = () => {
@@ -108,6 +98,7 @@ const App = () => {
     setAstronauts(newAstronauts);
   };
 
+  // POPUP TOGGLE
   const [popupOpen, setPopupOpen] = useState(false);
 
   return (
